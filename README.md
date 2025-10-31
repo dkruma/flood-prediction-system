@@ -148,6 +148,12 @@ A responsive dashboard was developed using **Tailwind CSS** and **Chart.js** to 
 
 <p align="center"><em>Figure: Interactive dashboard visualizing model metrics and feature impact.</em></p>
 
+<p align="center">
+  <a href="https://dkruma.github.io/flood-prediction-system" target="_blank">
+    <img src="https://img.shields.io/badge/View%20Live%20Dashboard-%23007ACC.svg?&style=for-the-badge&logo=google-chrome&logoColor=white" alt="View Live Dashboard"/>
+  </a>
+</p>
+
 ---
 
 ## 🧩 Project Architecture
