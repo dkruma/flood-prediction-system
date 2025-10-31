@@ -153,4 +153,4 @@ A responsive dashboard was developed using **Tailwind CSS** and **Chart.js** to 
 
 ---
 
-## 🧩 Project Architecture
+## Project Architecture
