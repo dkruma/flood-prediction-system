@@ -139,9 +139,6 @@ A responsive dashboard was developed using **Tailwind CSS** and **Chart.js** to 
 - Correlation matrix display  
 - OOB and cross-validation metrics  
 
-### 🔗 Demo:
-> [index.html](./index.html)
-
 <p align="center">
   <img src="./preview-dashboard.png" alt="Flood Prediction Dashboard Preview" width="700"/>
 </p>
