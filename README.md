@@ -140,7 +140,7 @@ A responsive dashboard was developed using **Tailwind CSS** and **Chart.js** to 
 - OOB and cross-validation metrics  
 
 <p align="center">
-  <img src="./preview-dashboard.png" alt="Flood Prediction Dashboard Preview" width="700"/>
+  <img src="img/flood-prediction-dashboard.png" alt="Flood Prediction Dashboard Preview" width="700"/>
 </p>
 
 <p align="center"><em>Figure: Interactive dashboard visualizing model metrics and feature impact.</em></p>
