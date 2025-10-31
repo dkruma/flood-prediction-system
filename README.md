@@ -21,7 +21,7 @@ The workflow follows an **end-to-end data science pipeline**, including:
 
 ---
 
-## 🧠 Key Insights
+## Key Insights
 
 | Factor | Correlation with Flood |
 |--------|------------------------|
@@ -34,7 +34,7 @@ The workflow follows an **end-to-end data science pipeline**, including:
 
 ---
 
-## 🗂️ Data Description
+## Data Description
 
 The dataset contains **historical meteorological observations and flood event records** from **Bandar Lampung (2010–2020)**, including:
 
@@ -48,7 +48,7 @@ The dataset contains **historical meteorological observations and flood event re
 
 ---
 
-## ⚙️ Data Preparation & Tools
+## Data Preparation & Tools
 
 Data preprocessing and transformation were performed using **Python** with the following libraries:
 
@@ -64,7 +64,7 @@ Data preprocessing and transformation were performed using **Python** with the f
 
 ---
 
-## 🔍 Correlation Matrix Analysis
+## Correlation Matrix Analysis
 
 <p align="center">
   <img src="img/correlation_matrix.png" alt="Correlation Matrix" width="600"/>
@@ -82,7 +82,7 @@ Key findings:
 
 ---
 
-## 🤖 Model Specification
+## Model Specification
 
 | Component | Description |
 |------------|-------------|
@@ -95,7 +95,7 @@ Key findings:
 
 ---
 
-## 📊 Evaluation Results
+## Evaluation Results
 
 | Metric | Score |
 |--------|--------|
@@ -110,7 +110,7 @@ Key findings:
 
 ---
 
-## 🌡️ Feature Importance Analysis
+## Feature Importance Analysis
 
 <p align="center">
   <img src="img/feature_importance.png" alt="Feature Importance" width="600"/>
@@ -128,7 +128,7 @@ Key insights:
 
 ---
 
-## 🧭 Interactive Dashboard
+## Interactive Dashboard
 
 A responsive dashboard was developed using **Tailwind CSS** and **Chart.js** to visualize model insights.
 
