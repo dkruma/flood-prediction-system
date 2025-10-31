@@ -7,7 +7,7 @@ An **end-to-end Data Science project** utilizing **Python** and a **Random Fores
 
 ## Project Overview
 
-This project aims to develop a **flood prediction model** for Bandar Lampung using **data science and machine learning techniques**.  
+This project aims to develop a **flood prediction model** for Bandar Lampung using **data mining and machine learning techniques**.  
 The main objectives are:
 - Identify key meteorological variables influencing flood occurrence  
 - Build a predictive model that supports **early warning and disaster management systems**
