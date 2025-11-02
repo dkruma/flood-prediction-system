@@ -374,28 +374,6 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                        </svg>
-                        Data Processing Pipeline
-                    </h3>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-start">
-                            <span class="text-purple-600 mr-2">•</span>
-                            <span><strong>Preprocessing:</strong> Data normalization (0-1), handling missing values, feature engineering</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-purple-600 mr-2">•</span>
-                            <span><strong>Feature Selection:</strong> 9 meteorological variables + 3 temporal features (year, month, day)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-purple-600 mr-2">•</span>
-                            <span><strong>Data Split:</strong> 70% training (35 samples), 30% testing (15 samples)</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
                         <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
                         </svg>
@@ -442,3 +420,190 @@
                     </svg>
                     Supervisor: Trisya Septiana, ST., MT.
                 </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Wait for Chart.js to load
+        function initCharts() {
+            if (typeof Chart === 'undefined') {
+                setTimeout(initCharts, 100);
+                return;
+            }
+
+            // Feature Importance Chart
+            const featureCtx = document.getElementById('featureImportanceChart').getContext('2d');
+            new Chart(featureCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Total Rainfall',
+                        'Humidity',
+                        'Air Temperature',
+                        'Year',
+                        'Weekly Rainfall Total',
+                        'Surface Wind',
+                        'Month',
+                        'Monsoon Wind Direction',
+                        'Day'
+                    ],
+                    datasets: [{
+                        label: 'Importance Score',
+                        data: [0.55, 0.15, 0.13, 0.05, 0.04, 0.03, 0.02, 0.02, 0.01],
+                        backgroundColor: [
+                            '#8B5CF6',
+                            '#7C3AED',
+                            '#6D28D9',
+                            '#5B21B6',
+                            '#4C1D95',
+                            '#2DD4BF',
+                            '#14B8A6',
+                            '#0D9488',
+                            '#0F766E'
+                        ],
+                        borderRadius: 6,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 },
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Importance: ' + (context.parsed.x * 100).toFixed(1) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 0.6,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return (value * 100).toFixed(0) + '%';
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Cross Validation Chart
+            const cvCtx = document.getElementById('cvChart').getContext('2d');
+            new Chart(cvCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Fold 1', 'Fold 2', 'Fold 3', 'Fold 4', 'Fold 5'],
+                    datasets: [{
+                        label: 'Accuracy Score',
+                        data: [1.0, 0.9, 0.8, 1.0, 0.8],
+                        borderColor: '#3B82F6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: '#3B82F6',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 },
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Accuracy: ' + (context.parsed.y * 100).toFixed(1) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1.1,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return (value * 100).toFixed(0) + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize charts when DOM and Chart.js are ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCharts);
+        } else {
+            initCharts();
+        }
+    </script>
+</body>
+</html>-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                        Data Processing Pipeline
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2">•</span>
+                            <span><strong>Preprocessing:</strong> Data normalization (0-1), handling missing values, feature engineering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2">•</span>
+                            <span><strong>Feature Selection:</strong> 9 meteorological variables + 3 temporal features (year, month, day)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2">•</span>
+                            <span><strong>Data Split:</strong> 70% training (35 samples), 30% testing (15 samples)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                        <svg class="w-5 h-5 mr
